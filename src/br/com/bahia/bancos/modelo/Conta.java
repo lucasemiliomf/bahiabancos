@@ -74,6 +74,21 @@ public class Conta {
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
+	
+	public void saque(BigDecimal valor) {
+		if(this.saldo.compareTo(valor) == 1) {
+			this.saldo.subtract(valor);
+		}
+		else {
+			System.out.println("Não há saldo suficiente");
+		}
+	}
+	
+	public void deposito(BigDecimal valor) {
+		this.saldo.add(valor);
+	}
+	
+	
     
     
 }
