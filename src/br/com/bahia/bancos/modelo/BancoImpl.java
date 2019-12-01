@@ -6,7 +6,13 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
+
+import com.mysql.cj.Query;
+import com.mysql.cj.result.RowList;
+
+import br.com.bahia.bancos.modelo.Conta;
 
 import br.com.bahia.bancos.util.JPAUtil;
 
@@ -21,16 +27,29 @@ public class BancoImpl extends UnicastRemoteObject implements Banco{
 
 	@Override
 	public boolean acessar_conta(String senha, String num_conta) {
-        
-		String q = "SELECT * FROM conta WHERE num_conta = "+num_conta;
-		TypedQuery<Conta> query = em.createQuery(q, Conta.class);
 		
-		List<Conta> contas = query.getResultList();
+		EntityManager em = new JPAUtil().getEntityManager();
 		
-		for (Conta c:contas) {
-			if(c.getSenha() == senha) return true;
-		}
-		return false;
+		javax.persistence.Query query = em.createQuery("SELECT senha FROM Conta  WHERE num_conta = "+num_conta);
+		//Query query = em.createQuery("SELECT e FROM Employee e WHERE e.dept = :deptName");
+		//query.setParameter("num_conta", num_conta);
+		List<Conta> lista = query.getResultList();
+		System.out.println(lista);
+		
+		return true;
+		//TypedQuery<Conta> query = this.em.createQuery("select c from Conta c where c.num_conta = :num_conta and c.senha = :senha", Conta.class);
+        //query.setParameter("num_conta", num_conta);
+        //query.setParameter("senha", senha);
+
+        //try{
+        	//Conta conta = query.getSingleResult();
+          //  if(num_conta.getSenha() == senha) return true;
+          //  return false;
+       // }catch(NoResultException e){
+        //	System.out.println("eae");
+       //     e.printStackTrace();
+       // false;
+       // }
 	}
 
 	@Override

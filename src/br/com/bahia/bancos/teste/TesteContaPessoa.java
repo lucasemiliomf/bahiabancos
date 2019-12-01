@@ -2,6 +2,7 @@ package br.com.bahia.bancos.teste;
 
 import javax.persistence.EntityManager;
 
+
 import br.com.bahia.bancos.modelo.Conta;
 import br.com.bahia.bancos.modelo.Pessoa;
 import br.com.bahia.bancos.util.JPAUtil;
