@@ -217,7 +217,8 @@ public class BancoImpl extends UnicastRemoteObject implements Banco{
 			if(transacoes.size() < 10) ini = 0;
 			else ini = transacoes.size()-10;
 			for (int i = ini; i < transacoes.size(); i++) {
-				resp+= transacoes.get(i).toString();
+				Transacao t = transacoes.get(i);
+				if(t.getConta().getId() == id) resp+= t.toString();
 			}
 			em2.close();
 			return resp;

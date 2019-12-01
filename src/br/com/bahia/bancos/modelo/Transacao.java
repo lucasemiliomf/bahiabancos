@@ -78,8 +78,11 @@ public class Transacao {
 		if(idDestino == null) {
 			return "Transação: Saque [data=" + data.getTime() +", valor=" + valor + "]\n";
 		}
-		if(idDestino != conta.getId()) {
+		if(idOrigem == conta.getId()) {
 			return "Transação: Transferência [data=" + data.getTime() +", valor=" + valor + ", idDestino=" + idDestino + "]\n";
+		}
+		if(idDestino == conta.getId()) {
+			return "Transação: Transferência [data=" + data.getTime() +", valor=" + valor + ", idOrigem=" + idOrigem + "]\n";
 		}
 		return "";
 		
