@@ -75,20 +75,21 @@ public class Conta {
 		this.pessoa = pessoa;
 	}
 	
+	public void setTransacao(Transacao transacao) {
+		this.movimentacoes.add(transacao);
+	}
+	
 	public void saque(BigDecimal valor) {
-		if(this.saldo.compareTo(valor) == 1) {
-			this.saldo.subtract(valor);
-		}
-		else {
-			System.out.println("Não há saldo suficiente");
-		}
+		this.saldo = this.saldo.subtract(valor);
 	}
 	
 	public void deposito(BigDecimal valor) {
-		this.saldo.add(valor);
+		this.saldo = this.saldo.add(valor);
 	}
 	
-	
+	public Integer getId() {
+		return this.id;
+	}
     
     
 }

@@ -10,7 +10,13 @@ public interface Banco extends Remote {
 	
 	public void sacar(String senha, String num_conta, BigDecimal valor) throws RemoteException;
 	
-	public void deposito(String senha, String num_conta, BigDecimal valor, Integer destino) throws RemoteException;
+	public void deposito(String senha, String num_conta, BigDecimal valor) throws RemoteException;
+	
+	public void transferencia(String senha, String num_conta_origem, String num_conta_destino, BigDecimal valor) throws RemoteException;
+	
+	public String saldo(String senha, String num_conta) throws RemoteException;
+	
+	public String extrato(String senha, String num_conta) throws RemoteException;
 	
 	//public ArrayList historico(String senha, String num_conta);
 }

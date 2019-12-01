@@ -69,6 +69,12 @@ public class Transacao {
 	public void setConta(Conta conta) {
 		this.conta = conta;
 	}
+
+	@Override
+	public String toString() {
+		return "Transacao [valor=" + valor + ", idOrigem=" + idOrigem + ", idDestino=" + idDestino + ", data=" + data
+				+ ", conta=" + conta + "]";
+	}
 	
 	
 
