@@ -72,8 +72,17 @@ public class Transacao {
 
 	@Override
 	public String toString() {
-		return "Transacao [valor=" + valor + ", idOrigem=" + idOrigem + ", idDestino=" + idDestino + ", data=" + data
-				+ ", conta=" + conta + "]";
+		if(idOrigem == null) {
+			return "Transação: Depósito [data=" + data.getTime() +", valor=" + valor + "]\n";
+		}
+		if(idDestino == null) {
+			return "Transação: Saque [data=" + data.getTime() +", valor=" + valor + "]\n";
+		}
+		if(idDestino != conta.getId()) {
+			return "Transação: Transferência [data=" + data.getTime() +", valor=" + valor + ", idDestino=" + idDestino + "]\n";
+		}
+		return "";
+		
 	}
 	
 	

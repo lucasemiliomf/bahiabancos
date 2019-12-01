@@ -205,20 +205,21 @@ public class BancoImpl extends UnicastRemoteObject implements Banco{
 		Conta conta = lista.get(0);
 		em.close();
 		
-		if(lista.get(0).getSenha().equalsIgnoreCase(senha)) {
+		if(conta.getSenha().equalsIgnoreCase(senha)) {
 			Integer id = conta.getId();
-			String resp = "";
-			em = new JPAUtil().getEntityManager();
+			String resp = "---------------- EXTRATO ----------------\nConta: "+num_conta+"\n\n";
+			EntityManager em2 = new JPAUtil().getEntityManager();
 			
-			query = em.createQuery("SELECT t FROM Transacao t WHERE t.conta_id = "+id);
-			List<Transacao> transacoes = query.getResultList();
+			javax.persistence.Query query2 = em2.createQuery("SELECT t FROM Transacao t WHERE t.idOrigem = "+ id+" or t.idDestino = "+id);
+			List<Transacao> transacoes = query2.getResultList();
+			
 			int ini;
 			if(transacoes.size() < 10) ini = 0;
 			else ini = transacoes.size()-10;
 			for (int i = ini; i < transacoes.size(); i++) {
-				resp+= transacoes.get(i).toString()+"\n";
+				resp+= transacoes.get(i).toString();
 			}
-			em.close();
+			em2.close();
 			return resp;
 		}
 		else {
