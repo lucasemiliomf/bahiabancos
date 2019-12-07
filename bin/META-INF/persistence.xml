@@ -11,7 +11,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 		<class>br.com.bahia.bancos.modelo.Transacao</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/contas?useTimezone=true&amp;serverTimezone=UTC" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.0.13:3306/contas?useTimezone=true&amp;serverTimezone=UTC" />
 			<property name="javax.persistence.jdbc.user" value="armando" />
 			<property name="javax.persistence.jdbc.password" value="armando" />
 

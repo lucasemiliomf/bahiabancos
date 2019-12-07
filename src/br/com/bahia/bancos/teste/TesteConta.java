@@ -14,8 +14,8 @@ public class TesteConta {
 	public static void main(String[] args) {
 		Conta conta = new Conta();
 		conta.setAgencia("0001");
-		conta.setNum_conta("00001");
-		conta.setSenha("1234");
+		conta.setNum_conta("00002");
+		conta.setSenha("4321");
 		conta.setTipo("corrente");
 		conta.setSaldo(new BigDecimal("100"));
 		

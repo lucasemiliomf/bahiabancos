@@ -13,8 +13,8 @@ public class TesteContaPessoa {
 		EntityManager em = new JPAUtil().getEntityManager();
         em.getTransaction().begin();
 
-        Pessoa pessoa = em.find(Pessoa.class, 1);
-        Conta conta = em.find(Conta.class, 1);
+        Pessoa pessoa = em.find(Pessoa.class, 2);
+        Conta conta = em.find(Conta.class, 2);
         
         conta.setPessoa(pessoa);
         

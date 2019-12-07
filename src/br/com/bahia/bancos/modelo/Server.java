@@ -7,7 +7,7 @@ public class Server {
 	Server (){
 		try {
 			Banco b = new BancoImpl();
-			Naming.rebind("rmi://192.168.0.40:1080/Banco", b);
+			Naming.rebind("rmi://192.168.0.13:1080/Banco", b);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

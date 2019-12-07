@@ -9,10 +9,10 @@ public class TestePessoa {
 
 	public static void main(String[] args) {
 		Pessoa pessoa = new Pessoa();
-		pessoa.setCpf_cnpj("05835338503");
-		pessoa.setEmail("armando@baiano.ba");
-		pessoa.setEndereco("Barreiras, Bahia");
-		pessoa.setNome("Armando Neto");
+		pessoa.setCpf_cnpj("03689813123");
+		pessoa.setEmail("emilio@goiano.go");
+		pessoa.setEndereco("Goiania, Goias");
+		pessoa.setNome("Lucas Emilio");
 		pessoa.setTipo("fisica");
 		
 		EntityManager em = new JPAUtil().getEntityManager();
